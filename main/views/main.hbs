@@ -1,0 +1,62 @@
+<div class="app">
+  <div id="sidenav">
+    <div class="wrapper">
+      <div class="logo">
+        <a href="#">Dashboard</a>
+        <p class="text-light user">{{user.name}}</p>
+        <a href="#" class="nav-icon pull-right"><i class="fa fa-bars"></i></a>
+      </div>
+      <div class="menu">
+        <ul>
+
+          <li><a href="/">Main Home</a></li>
+          <li class="active"><a href="/users">Home</a></li>
+          {{#if data.train }}
+          {{else}}
+          <li><a href="/users/findSkill">Select Skill</a></li>
+          {{/if}}
+          <li><a href="/users/logout" class="logout">Log out</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="main-content" class="p-5">
+    <div class="row">
+      <div class="col-12 p-5 bg-dark text-light text-center" style="border: 1px solid #1f1f1f; border-radius: 8px;">
+        {{#if data}}
+        <h3>{{data.skill.name}}</h3>
+        <p>Start Date: {{data.date}}</p>
+        {{else}}
+        <h3>No Skills Yet</h3>
+        <p>Find your favorite skills <a href="/users/findSkill">here</a></p>
+        {{/if}}
+      </div>
+    </div>
+    {{#if data}}
+    <div class="row">
+      <div class="col-sm-4 col-xs-12 bg-dark text-white mt-3 p-4" style="border-radius: 8px;">
+        <h4>Resources</h4>
+        {{#if data.resources}}
+        <ul>
+          {{#each data.resources as |res key|}}
+          <li>
+            {{res.name}} - <a style="cursor: pointer;" data-id="{{res._id}}" data-url="{{res.link}}"
+              class="text-primary aViewResources">
+              View Resource </a>
+            <input type="checkbox" class="pull-right videoT" data-id="{{res._id}}" data-skill="{{data.skill._id}}" />
+          </li>
+          {{/each}}
+        </ul>
+        {{/if}}
+      </div>
+      <div class="col-sm-8 col-xs-12 mt-3">
+        <!-- 16:9 aspect ratio -->
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" id="vRes" src="{{data.skill.intro}}" allowfullscreen
+            allow="picture-in-picture"></iframe>
+        </div>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+</div>

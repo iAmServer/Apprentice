@@ -1,0 +1,44 @@
+<div class="app">
+  <div id="sidenav">
+    <div class="wrapper">
+      <div class="logo">
+        <a href="#">Dashboard</a>
+        <p>{{user.name}}</p>
+        <a href="#" class="nav-icon pull-right"><i class="fa fa-bars"></i></a>
+      </div>
+      <div class="menu">
+        <ul>
+          <li class="active"><a href="/users">Home</a></li>
+          <li><a href="/">Main Home</a></li>
+          <li><a href="/users/find-skill">Select Skill</a></li>
+          <li><a href="/users/logout" class="logout">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="main-content" class="p-5">
+    <div class="row">
+      <div class="col-12 p-5 bg-dark text-light text-center" style="border: 1px solid #1f1f1f; border-radius: 8px;">
+        <h3>{{train.skill}}</h3>
+        <p>{{train.start_date}} - {{train.end_date}} </p>
+      </div>
+    </div>
+    <div class="col-12 bg-light p-4 m-4"></div>
+    <div class="row">
+      {{# each skills as |skill key|}}
+      <div class="col-xs-12 col-sm-4 mb-2">
+        <div class="card">
+          <img class="card-img-top" src="{{skill.image_url}}" alt="Card image" style="height: 250px;">
+          <div class="card-body text-center">
+            <h4 class="card-title">{{skill.name}}</h4>
+            <p class="card-text">{{skill.price}}</p>
+            <button type="button" class="btn btn-info btn-block btn-select-skill" data-id="{{skill.id}}">Select
+              Skills</button>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
+</div>

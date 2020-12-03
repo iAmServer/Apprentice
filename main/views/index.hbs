@@ -1,0 +1,94 @@
+<nav class="navbar navbar-expand-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Kósé</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav text-white ml-auto text-white">
+                {{#if user}}
+                <li class="nav-item">
+                    <a class="nav-link" href="users/">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    {{user.username}}
+                </li>
+                {{else}}
+                <li class="nav-item">
+                    <a class="nav-link" href="users/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="users/register">Join</a>
+                </li>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="jumbotron text-center m-0"
+    style="border-radius: 0; background-image: url(./images/bg.jpg); opacity: 0.9; background-size:cover; padding: 200px 30px">
+    <h1 class="text-danger">Skills Learing made easy</h1>
+    <p class="text-light">Learn any skills of your chioce from home</p>
+</div>
+{{!-- <section class="p-5 bg-light m-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form class="form-inline justify-content-center" method="POST">
+                    <div class="input-group mb-3">
+                        <input type="search" class="form-control" placeholder="Search skills" aria-label="Search skills"
+                            aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-info" type="button" id="button-addon2">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section> --}}
+<section class="mb-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mt-5 mb-3">
+                <h4>Select Course</h4>
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    {{# each skills as |skill key|}}
+                    <div class="col-xs-12 col-sm-4 mb-2">
+                        <div class="card">
+                            <img class="card-img-top" src="{{skill.image_url}}" alt="Card image" style="height: 250px;">
+                            <div class="card-body text-center">
+                                <h4 class="card-title">{{skill.name}}</h4>
+                                <p class="card-text">{{skill.price}}</p>
+                                <button type="button" class="btn btn-info btn-block btn-select-skill"
+                                    data-id="{{skill.id}}">Select Skills</button>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="bg-dark text-light p-5 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="copyright-text">
+                    <p>© 2019
+                        All rights reserved. Created by
+                        <a href="http://fb.me/iamserver.network" target="_blank">iAmServer Network</a>
+                    </p>
+                </div>
+
+                <div class="go_top">
+                    <span class="icon-arrow-up"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
